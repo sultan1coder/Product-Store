@@ -5,6 +5,9 @@ import morgan from "morgan";
 import cors from "cors";
 import  dotenv from "dotenv";
 
+
+import productRoute from "./routes/productRoute.js";
+
 dotenv.config();
 
 const app = express();
@@ -15,9 +18,7 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet()) //helmet is a secrity middleware that helps you to protect your app by setting various HTTP headers
 app.use(morgan("dev")); //log the requests
-app.get("/test", (req, res) => {
-    res.send("Hello from the test route")
-})
+app.use("/api/products", productRoute)
 
 app.listen(PORT, () => {
     // console.log(res.getHeader());
