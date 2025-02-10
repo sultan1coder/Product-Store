@@ -1,4 +1,4 @@
-import { sql } from "../config/db"
+import { sql } from "../config/db.js"
 export const getProducts = async (req, res) => {
     try {
         const products = await sql`
