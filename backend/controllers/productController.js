@@ -27,15 +27,15 @@ export const createProducts = async (req, res) => {
         })
     }
     try {
-        const newProduct = await sql`
+        const newProducts = await sql`
         INSERT INTO products (name,price,image)
         VALUES (${name},${price}),${image}
         RETURNING *
         `;
-        console.log("New Product added", newProduct)
+        // console.log("New Product added", newProduct)
         res.status(201).json({
             success: true,
-            data: newProduct[0]
+            data: newProducts[0]
         })
 
     } catch (error) {
