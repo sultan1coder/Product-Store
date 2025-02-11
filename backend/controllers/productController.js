@@ -29,7 +29,7 @@ export const createProducts = async (req, res) => {
     try {
         const newProducts = await sql`
         INSERT INTO products (name,price,image)
-        VALUES (${name},${price}),${image}
+        VALUES (${name},${price},${image})
         RETURNING *
         `;
         // console.log("New Product added", newProduct)
@@ -53,10 +53,19 @@ export const getProduct = async (req, res) => {
         const product = await sql`
         SELECT * FROM products WHERE id=${id}
         `
+
+        if (product.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Product not found"
+            })
+        }
+
         res.status(200).json({
             success: true,
             data: product[0]
-        })
+        });
+
     } catch (error) {
         console.log("Error in getProduct function", error);
         res.status(500).json({
