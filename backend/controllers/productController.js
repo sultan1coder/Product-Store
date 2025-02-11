@@ -91,7 +91,7 @@ export const updateProduct = async (req, res) => {
                 message: "Product not found"
             });
         }
-        
+
         res.status(200).json({
             success: true,
             data: updateProduct[0]
