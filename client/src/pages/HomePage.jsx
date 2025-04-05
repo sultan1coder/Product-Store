@@ -16,7 +16,9 @@ function HomePage() {
       <div className="flex items-center justify-between mb-8">
         <button
           className="btn btn-primary"
-          onClick={() => document.getElementById("add_product_modal").showModal()}
+          onClick={() =>
+            document.getElementById("add_product_modal").showModal()
+          }
         >
           <PlusCircleIcon className="mr-2 size-5" />
           Add Product
