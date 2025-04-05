@@ -18,9 +18,7 @@ function Navbar() {
             <Link to="/" className="transition-opacity hover:opacity-80">
               <div className="flex items-center gap-2">
                 <ShoppingCartIcon className="size-9 text-primary" />
-                <span
-                  className="font-mono text-2xl font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
-                >
+                <span className="font-mono text-2xl font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                   POSGRESTORE
                 </span>
               </div>
