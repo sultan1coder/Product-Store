@@ -22,10 +22,11 @@ function ThemeSelector() {
             key={themeOption.name}
             className={`
                 w-full px-4 py-3 rounded-xl flex items-center gap-3 transition-colors
-                ${theme === themeOption.name
-                ? "bg-primary/10 text-primary"
-                : "hover:bg-base-content/5"
-              }
+                ${
+                  theme === themeOption.name
+                    ? "bg-primary/10 text-primary"
+                    : "hover:bg-base-content/5"
+                }
               `}
             onClick={() => setTheme(themeOption.name)}
           >
@@ -35,7 +36,11 @@ function ThemeSelector() {
             {/* THEME PREVIEW COLORS */}
             <div className="flex gap-1 ml-auto">
               {themeOption.colors.map((color, i) => (
-                <span key={i} className="rounded-full size-2" style={{ backgroundColor: color }} />
+                <span
+                  key={i}
+                  className="rounded-full size-2"
+                  style={{ backgroundColor: color }}
+                />
               ))}
             </div>
           </button>
