@@ -3,7 +3,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 // base url will be dynamic depending on the environment
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "";
+const BASE_URL =
+  import.meta.env.MODE === "development" ? "http://localhost:5000" : "";
 
 export const useProductStore = create((set, get) => ({
   // products state
@@ -47,7 +48,8 @@ export const useProductStore = create((set, get) => ({
       const response = await axios.get(`${BASE_URL}/api/products`);
       set({ products: response.data.data, error: null });
     } catch (err) {
-      if (err.status == 429) set({ error: "Rate limit exceeded", products: [] });
+      if (err.status == 429)
+        set({ error: "Rate limit exceeded", products: [] });
       else set({ error: "Something went wrong", products: [] });
     } finally {
       set({ loading: false });
@@ -59,7 +61,9 @@ export const useProductStore = create((set, get) => ({
     set({ loading: true });
     try {
       await axios.delete(`${BASE_URL}/api/products/${id}`);
-      set((prev) => ({ products: prev.products.filter((product) => product.id !== id) }));
+      set((prev) => ({
+        products: prev.products.filter((product) => product.id !== id),
+      }));
       toast.success("Product deleted successfully");
     } catch (error) {
       console.log("Error in deleteProduct function", error);
@@ -89,7 +93,10 @@ export const useProductStore = create((set, get) => ({
     set({ loading: true });
     try {
       const { formData } = get();
-      const response = await axios.put(`${BASE_URL}/api/products/${id}`, formData);
+      const response = await axios.put(
+        `${BASE_URL}/api/products/${id}`,
+        formData
+      );
       set({ currentProduct: response.data.data });
       toast.success("Product updated successfully");
     } catch (error) {
