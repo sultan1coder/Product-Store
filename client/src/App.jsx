@@ -12,7 +12,10 @@ function App() {
   const { theme } = useThemeStore();
 
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-base-300" data-theme={theme}>
+    <div
+      className="min-h-screen transition-colors duration-300 bg-base-300"
+      data-theme={theme}
+    >
       <Navbar />
 
       <Routes>
